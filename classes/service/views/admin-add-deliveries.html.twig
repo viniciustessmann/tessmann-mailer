@@ -1,0 +1,39 @@
+<h2>Adicionar entrega</h2>
+
+<div class="submitbox">
+	<form method="post">
+
+		<label>Descrição</label></br>
+		<input type="hidden" name="action" value="save_delivery" />
+		<input type="text" name="title" /></br></br>
+
+		<label>Usuário</label></br>
+		<select name="user">
+			{% for id,user in users %}
+				<option value="{{id}}">{{user}}</option>
+			{% endfor %}
+		</select></br></br>
+
+		<label>Cliente</label></br>
+		<select name="client">
+			{% for id,client in clients %}
+				<option value="{{id}}">{{client}}</option>
+			{% endfor %}
+		</select></br></br>
+
+		<label>Valor</label></br>
+		<input name="money" class="moneyInput" data-prefix="R$ "/></br></br></br>
+
+		<input type="submit" class="button button-primary button-large" value="Salvar" />
+
+	</form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script src="{{moneyjs}}"></script>
+
+<script>
+	$(document).ready(function(){
+		$('.moneyInput').maskMoney();
+	});
+</script>

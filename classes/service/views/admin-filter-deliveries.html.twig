@@ -1,0 +1,40 @@
+<h2>Relatórios de entregas</h2>
+
+<form method="POST">
+	<input type="hidden" name="action" value="results_delivery" />
+
+	<label>Data de início</label></br>
+	<input type="text" name="date_start" class="dt_picker" /></br>
+	</br>
+
+	<label>Data de fim</label></br>
+	<input type="text" name="date_end" class="dt_picker" /></br>
+	</br>
+
+	<label>Usuário</label></br>
+		<select name="user">
+			<option>Selecione o usuário</option>
+			{% for id,user in users %}
+				<option value="{{id}}">{{user}}</option>
+			{% endfor %}
+		</select></br></br>
+
+		<label>Cliente</label></br>
+		<select name="client">
+			<option>Selecione o cliente</option>
+			{% for id,client in clients %}
+				<option value="{{id}}">{{client}}</option>
+			{% endfor %}
+		</select></br></br>
+
+	<input type="submit" class="button button-primary button-large" value="Buscar" />
+
+</form>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript">
+  	$( function() {
+    	$( ".dt_picker	" ).datepicker();
+  	});
+</script>
